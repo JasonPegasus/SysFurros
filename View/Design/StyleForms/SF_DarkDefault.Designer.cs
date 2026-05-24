@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             button1 = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
@@ -36,12 +39,12 @@
             progressBar1 = new ProgressBar();
             numericUpDown1 = new NumericUpDown();
             groupBox1 = new GroupBox();
+            checkBox1 = new CheckBox();
             dataGridView1 = new DataGridView();
             test1 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             listBox1 = new ListBox();
-            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -124,7 +127,7 @@
             numericUpDown1.BackColor = Color.FromArgb(64, 64, 64);
             numericUpDown1.ForeColor = Color.White;
             numericUpDown1.Location = new Point(1, 1);
-            numericUpDown1.Margin = new Padding(1, 1, 1, 1);
+            numericUpDown1.Margin = new Padding(1);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(1, 24);
             numericUpDown1.TabIndex = 8;
@@ -145,17 +148,53 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(5, 23);
+            checkBox1.Margin = new Padding(4, 3, 4, 3);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(93, 21);
+            checkBox1.TabIndex = 4;
+            checkBox1.Text = "checkBox1";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = Color.DimGray;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.DimGray;
+            dataGridViewCellStyle1.Font = new Font("Bahnschrift Light", 10F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Yellow;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { test1, Column1, Column2 });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.Font = new Font("Bahnschrift Light", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Maroon;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.Black;
             dataGridView1.Location = new Point(10, 125);
             dataGridView1.Margin = new Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.DimGray;
+            dataGridViewCellStyle3.Font = new Font("Bahnschrift Light", 10F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 25;
             dataGridView1.Size = new Size(341, 119);
@@ -179,25 +218,15 @@
             // listBox1
             // 
             listBox1.BackColor = Color.DimGray;
+            listBox1.BorderStyle = BorderStyle.FixedSingle;
             listBox1.ForeColor = Color.White;
-            listBox1.FormattingEnabled = true;
+            listBox1.ImeMode = ImeMode.NoControl;
             listBox1.Items.AddRange(new object[] { "el niño del oxxo", "enrique", "test", "el pepe", "ete sech" });
             listBox1.Location = new Point(236, 44);
             listBox1.Margin = new Padding(4, 3, 4, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(114, 68);
+            listBox1.Size = new Size(114, 66);
             listBox1.TabIndex = 11;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(5, 23);
-            checkBox1.Margin = new Padding(4, 3, 4, 3);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(93, 21);
-            checkBox1.TabIndex = 4;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // SF_DarkDefault
             // 

@@ -1,3 +1,5 @@
+using View.Design.StyleForms;
+
 namespace View
 {
     internal static class Program
