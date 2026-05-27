@@ -31,10 +31,11 @@
             button1 = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
-            dataGridView2 = new DataGridView();
+            dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -63,40 +64,46 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 2;
+            textBox1.Tag = "onlydefaults";
             // 
-            // dataGridView2
+            // dataGridView1
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column3, Column4 });
-            dataGridView2.Location = new Point(12, 70);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersVisible = false;
-            dataGridView2.Size = new Size(341, 150);
-            dataGridView2.TabIndex = 12;
-            dataGridView2.Tag = "";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(12, 70);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.TabIndex = 3;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Column1";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Column2";
+            Column2.Name = "Column2";
             // 
             // Column3
             // 
             Column3.HeaderText = "Column3";
             Column3.Name = "Column3";
             // 
-            // Column4
-            // 
-            Column4.HeaderText = "Column4";
-            Column4.Name = "Column4";
-            // 
             // F_Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(405, 391);
-            Controls.Add(dataGridView2);
+            Controls.Add(dataGridView1);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(button1);
+            KeyPreview = true;
             Name = "F_Login";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,8 +113,9 @@
         private Button button1;
         private Label label1;
         private TextBox textBox1;
-        private DataGridView dataGridView2;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
     }
 }
