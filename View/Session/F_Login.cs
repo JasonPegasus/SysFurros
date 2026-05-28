@@ -11,8 +11,9 @@ namespace View
 
             this.KeyDown += (object sender, KeyEventArgs e) => 
             {
-                if (e.KeyData == Keys.G ) { StyleManager.ApplyStyle(this, StyleManager.DARK_DEFAULT); }
-                if (e.KeyData == Keys.H) { StyleManager.ApplyStyle(this, StyleManager.WINDOWS_DEFAULT); }
+                if (e.KeyData == Keys.NumPad1) { StyleManager.ApplyStyle(this, StyleManager.WINDOWS_DEFAULT); }
+                if (e.KeyData == Keys.NumPad2) { StyleManager.ApplyStyle(this, StyleManager.DARK_DEFAULT); }
+                if (e.KeyData == Keys.NumPad3) { StyleManager.ApplyStyle(this, StyleManager.DARK_BLACK); }
             };
         }
     }

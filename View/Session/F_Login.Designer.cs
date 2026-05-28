@@ -73,6 +73,7 @@
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(12, 70);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(240, 150);
             dataGridView1.TabIndex = 3;
             // 
