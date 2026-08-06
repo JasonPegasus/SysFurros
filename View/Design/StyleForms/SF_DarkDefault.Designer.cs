@@ -54,10 +54,10 @@
             // 
             button1.BackColor = Color.Maroon;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Location = new Point(12, 13);
-            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Location = new Point(16, 17);
+            button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
-            button1.Size = new Size(100, 25);
+            button1.Size = new Size(128, 33);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = false;
@@ -65,10 +65,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 44);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(16, 58);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(44, 17);
+            label1.Size = new Size(56, 22);
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
@@ -77,10 +77,10 @@
             textBox1.BackColor = Color.DimGray;
             textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(12, 63);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Location = new Point(16, 82);
+            textBox1.Margin = new Padding(5, 4, 5, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 24);
+            textBox1.Size = new Size(128, 28);
             textBox1.TabIndex = 2;
             textBox1.Text = "TextBox";
             // 
@@ -91,20 +91,20 @@
             comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "test", "test2", "test3" });
-            comboBox1.Location = new Point(12, 95);
-            comboBox1.Margin = new Padding(4, 3, 4, 3);
+            comboBox1.Location = new Point(16, 124);
+            comboBox1.Margin = new Padding(5, 4, 5, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(100, 24);
+            comboBox1.Size = new Size(128, 29);
             comboBox1.TabIndex = 3;
             comboBox1.Text = "ComboBox";
             // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(5, 49);
-            radioButton1.Margin = new Padding(4, 3, 4, 3);
+            radioButton1.Location = new Point(7, 65);
+            radioButton1.Margin = new Padding(5, 4, 5, 4);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(107, 21);
+            radioButton1.Size = new Size(131, 26);
             radioButton1.TabIndex = 5;
             radioButton1.TabStop = true;
             radioButton1.Text = "radioButton1";
@@ -112,12 +112,12 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(236, 13);
-            progressBar1.Margin = new Padding(4, 3, 4, 3);
+            progressBar1.Location = new Point(304, 17);
+            progressBar1.Margin = new Padding(5, 4, 5, 4);
             progressBar1.MarqueeAnimationSpeed = 10;
             progressBar1.Name = "progressBar1";
             progressBar1.RightToLeft = RightToLeft.No;
-            progressBar1.Size = new Size(116, 25);
+            progressBar1.Size = new Size(149, 33);
             progressBar1.Step = 1;
             progressBar1.TabIndex = 6;
             progressBar1.Value = 60;
@@ -126,10 +126,10 @@
             // 
             numericUpDown1.BackColor = Color.FromArgb(64, 64, 64);
             numericUpDown1.ForeColor = Color.White;
-            numericUpDown1.Location = new Point(1, 1);
-            numericUpDown1.Margin = new Padding(1);
+            numericUpDown1.Location = new Point(2, 2);
+            numericUpDown1.Margin = new Padding(2, 2, 2, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(1, 24);
+            numericUpDown1.Size = new Size(2, 28);
             numericUpDown1.TabIndex = 8;
             // 
             // groupBox1
@@ -139,11 +139,11 @@
             groupBox1.Controls.Add(radioButton1);
             groupBox1.Controls.Add(numericUpDown1);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(117, 12);
-            groupBox1.Margin = new Padding(4, 3, 4, 3);
+            groupBox1.Location = new Point(151, 16);
+            groupBox1.Margin = new Padding(5, 4, 5, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 3, 4, 3);
-            groupBox1.Size = new Size(114, 107);
+            groupBox1.Padding = new Padding(5, 4, 5, 4);
+            groupBox1.Size = new Size(146, 140);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
@@ -151,10 +151,10 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(5, 23);
-            checkBox1.Margin = new Padding(4, 3, 4, 3);
+            checkBox1.Location = new Point(7, 30);
+            checkBox1.Margin = new Padding(5, 4, 5, 4);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(93, 21);
+            checkBox1.Size = new Size(114, 26);
             checkBox1.TabIndex = 4;
             checkBox1.Text = "checkBox1";
             checkBox1.UseVisualStyleBackColor = true;
@@ -183,8 +183,8 @@
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.Black;
-            dataGridView1.Location = new Point(10, 125);
-            dataGridView1.Margin = new Padding(4, 3, 4, 3);
+            dataGridView1.Location = new Point(13, 164);
+            dataGridView1.Margin = new Padding(5, 4, 5, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -197,7 +197,7 @@
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 25;
-            dataGridView1.Size = new Size(341, 119);
+            dataGridView1.Size = new Size(439, 156);
             dataGridView1.TabIndex = 10;
             // 
             // test1
@@ -221,19 +221,20 @@
             listBox1.BorderStyle = BorderStyle.FixedSingle;
             listBox1.ForeColor = Color.White;
             listBox1.ImeMode = ImeMode.NoControl;
+            listBox1.ItemHeight = 21;
             listBox1.Items.AddRange(new object[] { "el niño del oxxo", "enrique", "test", "el pepe", "ete sech" });
-            listBox1.Location = new Point(236, 44);
-            listBox1.Margin = new Padding(4, 3, 4, 3);
+            listBox1.Location = new Point(304, 58);
+            listBox1.Margin = new Padding(5, 4, 5, 4);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(114, 66);
+            listBox1.Size = new Size(146, 86);
             listBox1.TabIndex = 11;
             // 
             // SF_DarkDefault
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(360, 255);
+            ClientSize = new Size(463, 334);
             Controls.Add(listBox1);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
@@ -242,9 +243,9 @@
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(button1);
-            Font = new Font("Bahnschrift Light", 10F);
+            Font = new Font("Bahnschrift Light", 13F);
             ForeColor = Color.White;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "SF_DarkDefault";
             Text = "SF_DarkDefault";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();

@@ -28,95 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Login));
+            pictureBox1 = new PictureBox();
+            TX_Username = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label2 = new Label();
+            TX_Password = new TextBox();
+            BT_PasswordView = new Button();
+            BT_Login = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // pictureBox1
             // 
-            button1.BackColor = Color.FromArgb(255, 255, 128);
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Tag = "";
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = false;
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(15, 17);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(249, 44);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // TX_Username
+            // 
+            TX_Username.Anchor = AnchorStyles.Top;
+            TX_Username.Location = new Point(60, 95);
+            TX_Username.Margin = new Padding(4, 4, 4, 4);
+            TX_Username.Name = "TX_Username";
+            TX_Username.Size = new Size(157, 28);
+            TX_Username.TabIndex = 1;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Location = new Point(93, 16);
+            label1.Location = new Point(90, 69);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            label1.Size = new Size(94, 22);
+            label1.TabIndex = 2;
+            label1.Text = "Username";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // label2
             // 
-            textBox1.Location = new Point(12, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
-            textBox1.Tag = "onlydefaults";
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.Location = new Point(90, 127);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 22);
+            label2.TabIndex = 4;
+            label2.Text = "Password";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // TX_Password
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(12, 70);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(240, 150);
-            dataGridView1.TabIndex = 3;
+            TX_Password.Anchor = AnchorStyles.Top;
+            TX_Password.Location = new Point(60, 153);
+            TX_Password.Margin = new Padding(4, 4, 4, 4);
+            TX_Password.Name = "TX_Password";
+            TX_Password.Size = new Size(157, 28);
+            TX_Password.TabIndex = 3;
             // 
-            // Column1
+            // BT_PasswordView
             // 
-            Column1.HeaderText = "Column1";
-            Column1.Name = "Column1";
+            BT_PasswordView.Anchor = AnchorStyles.Top;
+            BT_PasswordView.BackColor = Color.FromArgb(64, 64, 64);
+            BT_PasswordView.Location = new Point(224, 152);
+            BT_PasswordView.Name = "BT_PasswordView";
+            BT_PasswordView.Size = new Size(28, 28);
+            BT_PasswordView.TabIndex = 5;
+            BT_PasswordView.Tag = "backcolor";
+            BT_PasswordView.Text = "♣";
+            BT_PasswordView.UseVisualStyleBackColor = false;
             // 
-            // Column2
+            // BT_Login
             // 
-            Column2.HeaderText = "Column2";
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Column3";
-            Column3.Name = "Column3";
+            BT_Login.Anchor = AnchorStyles.Top;
+            BT_Login.BackColor = Color.Red;
+            BT_Login.Location = new Point(60, 188);
+            BT_Login.Name = "BT_Login";
+            BT_Login.Size = new Size(157, 43);
+            BT_Login.TabIndex = 6;
+            BT_Login.Tag = "";
+            BT_Login.Text = "Login";
+            BT_Login.UseVisualStyleBackColor = false;
             // 
             // F_Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(405, 391);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(280, 266);
+            Controls.Add(BT_Login);
+            Controls.Add(BT_PasswordView);
+            Controls.Add(label2);
+            Controls.Add(TX_Password);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(TX_Username);
+            Controls.Add(pictureBox1);
+            Font = new Font("Bahnschrift Light", 13F);
             KeyPreview = true;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "F_Login";
-            Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Text = "Login to Syfur";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
+        private PictureBox pictureBox1;
+        private TextBox TX_Username;
         private Label label1;
-        private TextBox textBox1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
+        private Label label2;
+        private TextBox TX_Password;
+        private Button BT_PasswordView;
+        private Button BT_Login;
     }
 }

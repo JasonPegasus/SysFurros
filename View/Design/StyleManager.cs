@@ -10,6 +10,7 @@ using System.Diagnostics;
 using View.Design.StyleForms;
 using System.Drawing.Printing;
 using static View.StyleManager;
+using View.Design;
 
 namespace View
 {
@@ -34,37 +35,26 @@ namespace View
         {
             Type cType = ctr.GetType();
             if (!style.controlBases.ContainsKey(cType)) { return; }
+            string[] propBlacklist = GetPropertyBlacklist(ctr);
 
             foreach (var prop in style.controlBases[cType])
             {
                 PropertyInfo propInf = cType.GetProperty(prop.Key);
                 object propValue = propInf.GetValue(ctr);
 
-                if (propValue != null && (!OnlyDefaults(ctr) || propValue.Equals(WINDOWS_DEFAULT.controlBases[cType][propInf.Name])))
+                if (propValue != null && 
+                    !propBlacklist.Contains(propInf.Name.ToLower()) &&
+                    (!OnlyDefaults(ctr) || propValue.Equals(WINDOWS_DEFAULT.controlBases[cType][propInf.Name])))
                 { propInf.SetValue(ctr, prop.Value); }
             }
         }
 
-        static List<Control> GetAllControls(Form form)
+        static string[] GetPropertyBlacklist(Control ctr)
         {
-            List<Control> list = new List<Control>();
-            foreach (Control ctr in form.Controls) 
-            {
-                list.Add(ctr);
-                list.AddRange(GetAllControls(ctr));
-            }
-            return list;
-        }
+            if (!(ctr.Tag is string))
+            { return Array.Empty<string>(); }
 
-        static List<Control> GetAllControls(Control parent)
-        {
-            List<Control> list = new List<Control>();
-            foreach (Control ctr in parent.Controls)
-            {
-                list.Add(ctr);
-                list.AddRange(GetAllControls(ctr));
-            }
-            return list;
+            return ctr.Tag.ToString().Replace(" ", "").ToLower().Split(',');
         }
 
 
@@ -80,7 +70,6 @@ namespace View
             {
                 typeof(Color),
                 typeof(Font),
-                typeof(Image),
                 typeof(Padding),
                 typeof(FlatStyle),
                 typeof(BorderStyle),
@@ -98,7 +87,7 @@ namespace View
                 Form form = new T();
 
                 formBase = typeof(Form).GetProperties().Where(x => VISUAL_TYPES.Contains(x.PropertyType)).ToDictionary(x => x.Name, x => x.GetValue(form));
-                foreach (Control c in GetAllControls(form))
+                foreach (Control c in FormManagementHelper.GetAllControls(form))
                 {
                     Type cType = c.GetType();
                     controlBases[cType] = cType.GetProperties().Where(x => VISUAL_TYPES.Contains(x.PropertyType)).ToDictionary(x => x.Name, x => x.GetValue(c));
