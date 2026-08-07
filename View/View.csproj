@@ -9,15 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Logic\Logic.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Business\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Ferrando.UI.WinForms" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

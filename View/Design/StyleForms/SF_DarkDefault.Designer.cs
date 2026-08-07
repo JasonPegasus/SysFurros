@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SF_DarkDefault));
             button1 = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
@@ -127,7 +128,7 @@
             numericUpDown1.BackColor = Color.FromArgb(64, 64, 64);
             numericUpDown1.ForeColor = Color.White;
             numericUpDown1.Location = new Point(2, 2);
-            numericUpDown1.Margin = new Padding(2, 2, 2, 2);
+            numericUpDown1.Margin = new Padding(2);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(2, 28);
             numericUpDown1.TabIndex = 8;
@@ -245,6 +246,7 @@
             Controls.Add(button1);
             Font = new Font("Bahnschrift Light", 13F);
             ForeColor = Color.White;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "SF_DarkDefault";
             Text = "SF_DarkDefault";

@@ -77,6 +77,7 @@ namespace View
                 typeof(DataGridViewCellBorderStyle),
                 typeof(DataGridViewHeaderBorderStyle),
                 typeof(DockStyle),
+                typeof(Icon),
             };
 
             internal Dictionary<Type, Dictionary<string, object>> controlBases = new();
