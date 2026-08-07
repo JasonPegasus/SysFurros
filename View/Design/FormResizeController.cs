@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -16,7 +17,8 @@ namespace View.Design
         {
             pForm = form;
             pForm.Load += (_, _) => FormInit();
-            pForm.ResizeEnd += (_, _) => OnFormResized();
+            pForm.ResizeEnd += (_, _) => UpdateFormSize();
+            pForm.Paint += (_, _) => FormPaint();
         }
 
         Size baseSize;
@@ -30,17 +32,24 @@ namespace View.Design
             controls = FormManagementHelper.GetAllControls(pForm).ToDictionary(c=>c, c => c.Font.Size);
         }
 
-        void OnFormResized()
+        void FormPaint()
         {
-            float sizePerc = pForm.Width / baseSize.Width;
-            pForm.Size = baseSize;
+            if (pForm.WindowState == FormWindowState.Maximized) { UpdateFormSize(); }
+        }
+
+        void UpdateFormSize()
+        {
+            float sizePerc = (float)pForm.Size.Width / (float)baseSize.Width;
+            Size newSize = pForm.Size;
+
             pForm.Font = new Font(baseFormFont.FontFamily, baseFormFont.Size * sizePerc, baseFormFont.Style);
+            pForm.Size = newSize;
+
             foreach (var ctr in controls)
             {
                 Font oldFont = ctr.Key.Font;
                 ctr.Key.Font = new Font(oldFont.FontFamily, ctr.Value * sizePerc, oldFont.Style);
             }
         }
-
     }
 }

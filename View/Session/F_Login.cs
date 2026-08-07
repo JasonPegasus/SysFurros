@@ -9,9 +9,11 @@ namespace View
         public F_Login()
         {
             InitializeComponent();
+
             StyleManager.ApplyStyle(this, StyleManager.DARK_DEFAULT);
-            this.Load += (_, _) => Init();
             FormResizeController formResizer = new(this);
+
+            BT_PasswordView.Click += SwitchPasswordView;
 
             this.KeyDown += (object sender, KeyEventArgs e) =>
             {
@@ -19,13 +21,6 @@ namespace View
                 if (e.KeyData == Keys.NumPad2) { StyleManager.ApplyStyle(this, StyleManager.DARK_DEFAULT); }
                 if (e.KeyData == Keys.NumPad3) { StyleManager.ApplyStyle(this, StyleManager.DARK_BLACK); }
             };
-
-            BT_PasswordView.Click += SwitchPasswordView;
-        }
-
-
-        void Init()
-        {
             SetPasswordView(false);
         }
 

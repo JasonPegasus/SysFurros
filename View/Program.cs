@@ -8,7 +8,8 @@ namespace View
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new F_Login());
+            F_Login loginForm = new F_Login();
+            loginForm.ShowDialog();
         }
     }
 }

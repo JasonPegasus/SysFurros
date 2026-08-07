@@ -41,11 +41,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
             pictureBox1.Location = new Point(15, 17);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(249, 44);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -54,16 +53,14 @@
             // 
             // TX_Username
             // 
-            TX_Username.Anchor = AnchorStyles.Top;
             TX_Username.Location = new Point(60, 95);
-            TX_Username.Margin = new Padding(4, 4, 4, 4);
+            TX_Username.Margin = new Padding(4);
             TX_Username.Name = "TX_Username";
             TX_Username.Size = new Size(157, 28);
             TX_Username.TabIndex = 1;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Location = new Point(90, 69);
             label1.Margin = new Padding(4, 0, 4, 0);
@@ -75,7 +72,6 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Location = new Point(90, 127);
             label2.Margin = new Padding(4, 0, 4, 0);
@@ -87,16 +83,14 @@
             // 
             // TX_Password
             // 
-            TX_Password.Anchor = AnchorStyles.Top;
             TX_Password.Location = new Point(60, 153);
-            TX_Password.Margin = new Padding(4, 4, 4, 4);
+            TX_Password.Margin = new Padding(4);
             TX_Password.Name = "TX_Password";
             TX_Password.Size = new Size(157, 28);
             TX_Password.TabIndex = 3;
             // 
             // BT_PasswordView
             // 
-            BT_PasswordView.Anchor = AnchorStyles.Top;
             BT_PasswordView.BackColor = Color.FromArgb(64, 64, 64);
             BT_PasswordView.Location = new Point(224, 152);
             BT_PasswordView.Name = "BT_PasswordView";
@@ -108,7 +102,6 @@
             // 
             // BT_Login
             // 
-            BT_Login.Anchor = AnchorStyles.Top;
             BT_Login.BackColor = Color.Red;
             BT_Login.Location = new Point(60, 188);
             BT_Login.Name = "BT_Login";
@@ -132,7 +125,7 @@
             Controls.Add(pictureBox1);
             Font = new Font("Bahnschrift Light", 13F);
             KeyPreview = true;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "F_Login";
             Text = "Login to Syfur";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
