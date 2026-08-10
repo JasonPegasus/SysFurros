@@ -127,10 +127,10 @@
             // 
             numericUpDown1.BackColor = Color.FromArgb(64, 64, 64);
             numericUpDown1.ForeColor = Color.White;
-            numericUpDown1.Location = new Point(2, 2);
+            numericUpDown1.Location = new Point(8, 100);
             numericUpDown1.Margin = new Padding(2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(2, 28);
+            numericUpDown1.Size = new Size(131, 28);
             numericUpDown1.TabIndex = 8;
             // 
             // groupBox1

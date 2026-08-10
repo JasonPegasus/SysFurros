@@ -29,21 +29,49 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            richTextBox1 = new RichTextBox();
+            CONSOLE = new RichTextBox();
+            BT_SQL_Start = new Button();
+            BT_SQL_Stop = new Button();
             SuspendLayout();
             // 
-            // richTextBox1
+            // CONSOLE
             // 
-            richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            richTextBox1.BackColor = Color.Black;
-            richTextBox1.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox1.ForeColor = Color.White;
-            richTextBox1.Location = new Point(12, 12);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.ReadOnly = true;
-            richTextBox1.Size = new Size(865, 308);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
+            CONSOLE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CONSOLE.BackColor = Color.Black;
+            CONSOLE.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CONSOLE.ForeColor = Color.White;
+            CONSOLE.Location = new Point(12, 12);
+            CONSOLE.Name = "CONSOLE";
+            CONSOLE.ReadOnly = true;
+            CONSOLE.Size = new Size(865, 308);
+            CONSOLE.TabIndex = 0;
+            CONSOLE.Text = "";
+            // 
+            // BT_SQL_Start
+            // 
+            BT_SQL_Start.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BT_SQL_Start.BackColor = Color.Gray;
+            BT_SQL_Start.FlatStyle = FlatStyle.Flat;
+            BT_SQL_Start.Font = new Font("Segoe UI", 9F);
+            BT_SQL_Start.Location = new Point(12, 326);
+            BT_SQL_Start.Name = "BT_SQL_Start";
+            BT_SQL_Start.Size = new Size(75, 30);
+            BT_SQL_Start.TabIndex = 1;
+            BT_SQL_Start.Text = "Start SQL";
+            BT_SQL_Start.UseVisualStyleBackColor = false;
+            // 
+            // BT_SQL_Stop
+            // 
+            BT_SQL_Stop.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BT_SQL_Stop.BackColor = Color.Gray;
+            BT_SQL_Stop.FlatStyle = FlatStyle.Flat;
+            BT_SQL_Stop.Font = new Font("Segoe UI", 9F);
+            BT_SQL_Stop.Location = new Point(12, 362);
+            BT_SQL_Stop.Name = "BT_SQL_Stop";
+            BT_SQL_Stop.Size = new Size(75, 30);
+            BT_SQL_Stop.TabIndex = 2;
+            BT_SQL_Stop.Text = "Stop SQL";
+            BT_SQL_Stop.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -51,7 +79,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(889, 450);
-            Controls.Add(richTextBox1);
+            Controls.Add(BT_SQL_Stop);
+            Controls.Add(BT_SQL_Start);
+            Controls.Add(CONSOLE);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "Syfur Admin Panel";
@@ -60,6 +90,8 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox CONSOLE;
+        private Button BT_SQL_Start;
+        private Button BT_SQL_Stop;
     }
 }
