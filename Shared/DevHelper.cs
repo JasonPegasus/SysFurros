@@ -5,7 +5,7 @@ namespace Shared
     public static class DevHelper
     {
         public static Exception FormatError(string text, Exception exception)
-        { return new Exception($"{text}:\n{exception.Message}\n\n"); }
+        { return new Exception($">>> {text}:\n{exception.Message}\n\n"); }
 
         public static string CurrentDate()
         { return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"); }
@@ -17,8 +17,8 @@ namespace Shared
         {
             { PrintType.Log, Color.White },
             { PrintType.Warn, Color.Gold },
-            { PrintType.Error, Color.Red },
-            { PrintType.FatalError, Color.DarkRed },
+            { PrintType.Error, Color.FromArgb(250, 100, 100) },
+            { PrintType.FatalError, Color.FromArgb(200, 0, 200) },
         };
 
         public static event Action<string, PrintType>? OnPrint;

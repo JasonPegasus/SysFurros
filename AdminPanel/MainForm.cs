@@ -1,3 +1,4 @@
+using DataAccess.Session.DTOs;
 using Shared;
 
 namespace AdminPanel
@@ -10,9 +11,11 @@ namespace AdminPanel
             BT_SQL_Start.Click += (_, _) => SwitchSQLService(true);
             BT_SQL_Stop.Click += (_, _) => SwitchSQLService(false);
             DevHelper.OnPrint += PrintToConsole;
+            DT_Persona pers = new("pepe", "argento", 45789123, "4847-1235", 5, "EEEE.PNG", 48954);
+            DevHelper.Print($"Nombre: {pers.Nombres}");
         }
 
-        public void PrintToConsole(string msg, DevHelper.PrintType pType)
+        void PrintToConsole(string msg, DevHelper.PrintType pType)
         {
             RichTextBox b = CONSOLE;
             b.SelectionStart = b.Text.Length;
@@ -22,9 +25,6 @@ namespace AdminPanel
         }
 
         public void SwitchSQLService(bool start)
-        {
-            CmdExecute cmd = new($"sc {(start ? "start" : "stop")} MSSQL$SQLEXPRESS");
-            DevHelper.Print(cmd.Run(), (DevHelper.PrintType) Random.Shared.Next(0, 4));
-        }
+        { DevHelper.Print((new CmdExecute($"sc {(start ? "start" : "stop")} MSSQL$SQLEXPRESS")).Run()); }
     }
 }

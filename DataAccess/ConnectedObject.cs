@@ -8,11 +8,11 @@ using Shared;
 
 namespace Logic
 {
-    internal abstract class Connection
+    public abstract class ConnectedObject
     {
-        static readonly string serverAddress = "localhost";
+        static readonly string serverAddress = @"localhost\SQLEXPRESS";
         static readonly string dbName = "FurrosDB";
-        static readonly string connString = $"Server={serverAddress};Database={dbName};Trusted_Connection=True;";
+        static readonly string connString = $"Server={serverAddress};Database={dbName};Integrated Security=True;TrustServerCertificate=True;";
 
         private SqlConnection? MakeConnection()
         {
@@ -20,11 +20,11 @@ namespace Logic
             catch (Exception ex) { throw DevHelper.FormatError("Error while connecting to DataBase", ex); }
         }
 
-        private SqlCommand? MakeCommand(SqlConnection connection, SqlParameter[] parameters)
+        private SqlCommand? MakeCommand(SqlConnection connection, string cmdline, SqlParameter[] parameters)
         {
             try
             {
-                SqlCommand cm = new SqlCommand("sp_InsertEmployee", connection);
+                SqlCommand cm = new SqlCommand(cmdline, connection);
                 cm.CommandType = CommandType.StoredProcedure;
                 cm.Parameters.AddRange(parameters);
                 return cm;
@@ -38,11 +38,15 @@ namespace Logic
         {
             try
             {
+                DevHelper.Print($"Executing Query: {query}");
                 using (SqlConnection connection = MakeConnection())
                 {
-                    using (SqlCommand command = MakeCommand(connection, parameters))
+                    DevHelper.Print("   Connected succesfully.");
+                    using (SqlCommand command = MakeCommand(connection, query, parameters))
                     {
+                        DevHelper.Print("   Created command.");
                         connection.Open();
+                        DevHelper.Print("   Opened connection.");
 
                         switch (queryType)
                         {
@@ -62,7 +66,11 @@ namespace Logic
                     }
                 }
             }
-            catch (Exception ex) { throw new Exception($"Error Running Procedure:\n{ex.Message}\n\n"); }
+            catch (Exception ex) 
+            { 
+                DevHelper.Print(DevHelper.FormatError("Error Running Procedure", ex).Message, DevHelper.PrintType.FatalError);
+                return null; 
+            }
         }
     }
 }
