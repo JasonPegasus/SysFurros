@@ -12,15 +12,15 @@ namespace DataAccess.Session.DTOs
 {
     public class DT_Persona : ConnectedObject
     {
-        public int ID            { get; private set; }
-        public string Nombres    { get; private set; }
-        public string Apellidos  { get; private set; }
-        public int DNI           { get; private set; }
-        public string Telefono   { get; private set; }
-        public int Direccion     { get; private set; }
-        public string Imagen_URL { get; private set; }
-        public int Legajo        { get; private set; }
-        public bool Activo       { get; private set; }
+        public int ID            { get => (int)    VALUES["id"];         private set => VALUES["id"] =         value; }
+        public string Nombres    { get => (string) VALUES["nombres"];    private set => VALUES["nombres"] =    value; }
+        public string Apellidos  { get => (string) VALUES["apellidos"];  private set => VALUES["apellidos"] =  value; }
+        public int DNI           { get => (int)    VALUES["dni"];        private set => VALUES["dni"] =        value; }
+        public string Telefono   { get => (string) VALUES["telefono"];   private set => VALUES["telefono"] =   value; }
+        public int Direccion     { get => (int)    VALUES["direccion"];  private set => VALUES["direccion"] =  value; }
+        public string Imagen_URL { get => (string) VALUES["imagen_url"]; private set => VALUES["imagen_url"] = value; }
+        public int Legajo        { get => (int)    VALUES["legajo"];     private set => VALUES["legajo"] =     value; }
+        public bool Activo       { get => (bool)   VALUES["activo"];     private set => VALUES["activo"] =     value; }
 
         static readonly string createProcedure = "RegisterPersona";
         static readonly string getDataProcedure = "GetPersonaData";
@@ -32,7 +32,8 @@ namespace DataAccess.Session.DTOs
             {
                 ParameterName = "@PersonaID",
                 SqlDbType = SqlDbType.Int,
-                Direction = ParameterDirection.Output
+                Direction = ParameterDirection.Output,
+                Value = -1
             };
             SqlParameter[] sqlParameters = {
                 new SqlParameter { ParameterName = "@Nombres",   SqlDbType = SqlDbType.NVarChar, Value = nombres },
@@ -50,13 +51,14 @@ namespace DataAccess.Session.DTOs
                 idParam,
             };
 
-            int? returned = Convert.ToInt32(RunProcedure(createProcedure, sqlParameters, QueryType.Write));
-            if (returned != null && returned > 0)
+            RunProcedure(createProcedure, sqlParameters, QueryType.Write);
+            if (int.TryParse(idParam.Value.ToString(), out int v) && v >= 0)
             {
-                DevHelper.Print($"Added Person to ID {Convert.ToInt32(idParam.Value)}");
-                ID = Convert.ToInt32(idParam.Value);
+                DevHelper.Print($"Added Person to ID {v}");
+                ID = v;
                 UpdateData();
             }
+            else { DevHelper.Print($"Person Creation Output Parameter was -1, or wasn't parseable", DevHelper.PrintType.Error); }
         }
 
         public DT_Persona(int id)

@@ -14,6 +14,10 @@ namespace Logic
         static readonly string dbName = "FurrosDB";
         static readonly string connString = $"Server={serverAddress};Database={dbName};Integrated Security=True;TrustServerCertificate=True;";
 
+        public Dictionary<string, object> VALUES { get; private set; } = new();
+
+        public object this[string key] { get { return VALUES[key]; } set { VALUES[key] = value; } }
+
         private SqlConnection? MakeConnection()
         {
             try { return new SqlConnection(connString); }

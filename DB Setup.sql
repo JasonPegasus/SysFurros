@@ -382,16 +382,23 @@ CREATE PROCEDURE RegisterPersona (
     @Img NVARCHAR(1024),
     @Legajo INT,
     
-    @Provincia INT, @Ciudad INT, @Calle NVARCHAR(128), @Altura INT, @PD VARCHAR(16),
+    @Provincia INT,
+    @Ciudad INT,
+    @Calle NVARCHAR(128),
+    @Altura INT,
+    @PD VARCHAR(16),
 
     @PersonaID INT OUTPUT
 ) AS BEGIN SET NOCOUNT ON;
-    IF NOT EXISTS (SELECT ID FROM Persona WHERE (DNI = @DNI OR Legajo = @Legajo)) BEGIN
+    DECLARE @FoundPers INT;
+    IF NOT EXISTS (SELECT ID = @FoundPers FROM Persona WHERE (DNI = @DNI OR Legajo = @Legajo)) BEGIN
         DECLARE @DirID INT; 
         EXEC RegisterDireccion @Ciudad, @Calle, @Altura, @PD, @DirID OUTPUT;
         INSERT INTO Persona (Nombres, Apellidos, DNI, Telefono, Direccion, Imagen_URL, Legajo, Activo)
         VALUES (@Nombres, @Apellidos, @DNI, @Telefono, @DirID, @Img, @Legajo, 1);
         SET @PersonaID = SCOPE_IDENTITY();
+    END ELSE BEGIN
+        SET @PersonaID = @FoundPers;
     END
 END;
 GO
@@ -435,7 +442,10 @@ CREATE PROCEDURE RegisterUsuario (
     @Img NVARCHAR(1024),
     @Legajo INT,
     
-    @Ciudad INT, @Calle NVARCHAR(128), @Altura INT, @PD VARCHAR(16),
+    @Ciudad INT,
+    @Calle NVARCHAR(128),
+    @Altura INT,
+    @PD VARCHAR(16),
 
     @UserID INT OUTPUT
 ) AS BEGIN SET NOCOUNT ON;
