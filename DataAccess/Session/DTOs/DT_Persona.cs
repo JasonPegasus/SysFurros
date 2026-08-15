@@ -25,8 +25,12 @@ namespace DataAccess.Session.DTOs
         static readonly string createProcedure = "RegisterPersona";
         static readonly string getDataProcedure = "GetPersonaData";
 
+        public static DT_Persona? Create(string nombres, string apellidos, int dni, string telefono, int direccion, string imagen, int legajo)
+        { return new DT_Persona(nombres, apellidos, dni, telefono, direccion, imagen, legajo); }
 
-        public DT_Persona(string nombres, string apellidos, int dni, string telefono, int direccion, string imagen, int legajo)
+        public static DT_Persona? Find(int id) { return new DT_Persona(id); }
+
+        private DT_Persona(string nombres, string apellidos, int dni, string telefono, int direccion, string imagen, int legajo)
         {
             SqlParameter idParam = new SqlParameter
             {
@@ -61,7 +65,7 @@ namespace DataAccess.Session.DTOs
             else { DevHelper.Print($"Person Creation Output Parameter was -1, or wasn't parseable", DevHelper.PrintType.Error); }
         }
 
-        public DT_Persona(int id)
+        private DT_Persona(int id)
         {
             this.ID = id;
             UpdateData();

@@ -390,8 +390,8 @@ CREATE PROCEDURE RegisterPersona (
 
     @PersonaID INT OUTPUT
 ) AS BEGIN SET NOCOUNT ON;
-    DECLARE @FoundPers INT;
-    IF NOT EXISTS (SELECT ID = @FoundPers FROM Persona WHERE (DNI = @DNI OR Legajo = @Legajo)) BEGIN
+    DECLARE @FoundPers INT = (SELECT ID FROM Persona WHERE (DNI = @DNI OR Legajo = @Legajo);
+    IF @FoundPers IS NULL BEGIN
         DECLARE @DirID INT; 
         EXEC RegisterDireccion @Ciudad, @Calle, @Altura, @PD, @DirID OUTPUT;
         INSERT INTO Persona (Nombres, Apellidos, DNI, Telefono, Direccion, Imagen_URL, Legajo, Activo)

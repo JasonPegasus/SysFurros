@@ -18,6 +18,9 @@ namespace Logic
 
         public object this[string key] { get { return VALUES[key]; } set { VALUES[key] = value; } }
 
+        protected static ConnectedObject? Create() { return null; }
+        protected static ConnectedObject? Find() { return null; }
+
         private SqlConnection? MakeConnection()
         {
             try { return new SqlConnection(connString); }

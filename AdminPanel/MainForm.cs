@@ -12,20 +12,24 @@ namespace AdminPanel
             InitializeComponent();
             BT_SQL_Start.Click += (_, _) => SwitchSQLService(true);
             BT_SQL_Stop.Click += (_, _) => SwitchSQLService(false);
+            BT_Test.Click += (_, _) => DoTest();
+
             defaultConsoleFont = CONSOLE.Font;
 
             DevHelper.OnPrint += (msg, pType) => PrintToConsole(msg, pType);
             PrintToConsole("                         [ Syfur Admin Console ]", Color.FromArgb(152, 0, 0), new Font("monotype corsiva", 20, FontStyle.Regular));
             PrintToConsole("(C) 2026 /// Maximo Raziel F.J. - Valentina A. Mironchik - Candela R.L. Ortiz", Color.FromArgb(152, 0, 0));
             PrintToConsole("---------------------------------------------------------------------------", Color.FromArgb(152, 0, 0));
-            //DT_Persona pers = new("pepe", "argento", 45789123, "4847-1235", 5, "EEEE.PNG", 48954);
-            DT_Persona pers = new(1);
+        }
 
-            foreach (object v in pers.VALUES.Values)
-            {
-                if (v is null) continue;
-                DevHelper.Print(v.ToString());
-            }
+        void DoTest()
+        {
+           DT_Persona? pers = DT_Persona.Create("pepe", "argento", 58798546, "54 9 11 5987-5468", 1, "https://imagen.com o algo asi", 54898756);
+           foreach (var v in pers.VALUES)
+           {
+               if (v.Key is null || v.Value is null) continue;
+               DevHelper.Print(v.ToString());
+           }
         }
 
         void PrintToConsole(string msg, DevHelper.PrintType pType, Font? font = null)
@@ -39,6 +43,7 @@ namespace AdminPanel
             c.SelectionColor = color;
             if (font is not null) { c.SelectionFont = font; }
             c.AppendText(msg + "\n");
+            if (CH_AutoScroll.Checked) { c.ScrollToCaret(); }
         }
 
         public void SwitchSQLService(bool start)
