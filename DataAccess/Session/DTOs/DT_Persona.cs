@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Logic;
 using Microsoft.Data.SqlClient;
 using Shared;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DataAccess.Session.DTOs
 {
@@ -24,6 +25,9 @@ namespace DataAccess.Session.DTOs
 
         static readonly string createProcedure = "RegisterPersona";
         static readonly string getDataProcedure = "GetPersonaData";
+        static readonly string updateDataProcedure = "UpdatePersona";
+
+
 
         public static DT_Persona? Create(string nombres, string apellidos, int dni, string telefono, int direccion, string imagen, int legajo)
         { return new DT_Persona(nombres, apellidos, dni, telefono, direccion, imagen, legajo); }
@@ -47,7 +51,7 @@ namespace DataAccess.Session.DTOs
                 new SqlParameter { ParameterName = "@Img",       SqlDbType = SqlDbType.NVarChar, Value = imagen },
                 new SqlParameter { ParameterName = "@Legajo",    SqlDbType = SqlDbType.Int,      Value = legajo },
 
-                new SqlParameter { ParameterName = "@Provincia",  SqlDbType = SqlDbType.Int,      Value = 1 },
+                new SqlParameter { ParameterName = "@Provincia", SqlDbType = SqlDbType.Int,      Value = 1 },
                 new SqlParameter { ParameterName = "@Ciudad",    SqlDbType = SqlDbType.Int,      Value = 1 },
                 new SqlParameter { ParameterName = "@Calle",     SqlDbType = SqlDbType.NVarChar, Value = "TEST" },
                 new SqlParameter { ParameterName = "@Altura",    SqlDbType = SqlDbType.Int,      Value = 35 },
@@ -60,7 +64,7 @@ namespace DataAccess.Session.DTOs
             {
                 DevHelper.Print($"Added Person to ID {v}");
                 ID = v;
-                UpdateData();
+                PullData();
             }
             else { DevHelper.Print($"Person Creation Output Parameter was -1, or wasn't parseable", DevHelper.PrintType.Error); }
         }
@@ -68,11 +72,27 @@ namespace DataAccess.Session.DTOs
         private DT_Persona(int id)
         {
             this.ID = id;
-            UpdateData();
+            PullData();
             DevHelper.Print(this.DNI.ToString());
         }
 
-        public DT_Persona UpdateData()
+        public DT_Persona? PushData()
+        {
+            SqlParameter[] sqlParameters = {
+                new SqlParameter { ParameterName = "@ID",        SqlDbType = SqlDbType.Int,      Value = ID },
+                new SqlParameter { ParameterName = "@Nombres",   SqlDbType = SqlDbType.NVarChar, Value = Nombres },
+                new SqlParameter { ParameterName = "@Apellidos", SqlDbType = SqlDbType.NVarChar, Value = Apellidos },
+                new SqlParameter { ParameterName = "@DNI",       SqlDbType = SqlDbType.Int,      Value = DNI },
+                new SqlParameter { ParameterName = "@Telefono",  SqlDbType = SqlDbType.VarChar,  Value = Telefono },
+                new SqlParameter { ParameterName = "@Img",       SqlDbType = SqlDbType.NVarChar, Value = Imagen_URL },
+                new SqlParameter { ParameterName = "@Legajo",    SqlDbType = SqlDbType.Int,      Value = Legajo },
+            };
+            RunProcedure(updateDataProcedure, sqlParameters);
+
+            return this;
+        }
+
+        public DT_Persona? PullData()
         {
             SqlParameter[] sqlParameters = {
                 new SqlParameter

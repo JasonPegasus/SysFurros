@@ -24,12 +24,17 @@ namespace AdminPanel
 
         void DoTest()
         {
-           DT_Persona? pers = DT_Persona.Create("pepe", "argento", 58798546, "54 9 11 5987-5468", 1, "https://imagen.com o algo asi", 54898756);
-           foreach (var v in pers.VALUES)
-           {
-               if (v.Key is null || v.Value is null) continue;
-               DevHelper.Print(v.ToString());
-           }
+            //DT_Persona? pers = DT_Persona.Create("pepe", "argento", 58798546, "54 9 11 5987-5468", 1, "https://imagen.com o algo asi", 54898756);
+            DT_Persona? pers = DT_Persona.Find(1);
+            if (pers is null) return;
+            //pers["nombres"] = "ENRIQUE";
+            //pers.PushData();
+            pers.PullData();
+            foreach (var v in pers.VALUES)
+            {
+                if (v.Key is null || v.Value is null) continue;
+                DevHelper.Print(v.ToString());
+            }
         }
 
         void PrintToConsole(string msg, DevHelper.PrintType pType, Font? font = null)

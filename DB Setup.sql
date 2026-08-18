@@ -390,8 +390,8 @@ CREATE PROCEDURE RegisterPersona (
 
     @PersonaID INT OUTPUT
 ) AS BEGIN SET NOCOUNT ON;
-    DECLARE @FoundPers INT = (SELECT ID FROM Persona WHERE (DNI = @DNI OR Legajo = @Legajo);
-    IF @FoundPers IS NULL BEGIN
+    DECLARE @FoundPers INT = (SELECT ID FROM Persona WHERE (DNI = @DNI OR Legajo = @Legajo));
+    IF (@FoundPers IS NULL) BEGIN
         DECLARE @DirID INT; 
         EXEC RegisterDireccion @Ciudad, @Calle, @Altura, @PD, @DirID OUTPUT;
         INSERT INTO Persona (Nombres, Apellidos, DNI, Telefono, Direccion, Imagen_URL, Legajo, Activo)
@@ -402,6 +402,30 @@ CREATE PROCEDURE RegisterPersona (
     END
 END;
 GO
+
+CREATE PROCEDURE UpdatePersona (
+    @ID INT,
+    @Nombres NVARCHAR(128), 
+    @Apellidos NVARCHAR(128),
+    @DNI INT,
+    @Telefono VARCHAR(30),
+    @Img NVARCHAR(1024),
+    @Legajo INT
+) AS BEGIN SET NOCOUNT ON;
+    DECLARE @FoundPers INT = (SELECT ID FROM Persona WHERE ID = @ID);
+    IF (@FoundPers IS NOT NULL) BEGIN
+        UPDATE Persona SET
+        Nombres = @Nombres,
+        Apellidos = @Apellidos,
+        DNI = @DNI,
+        Telefono = @Telefono,
+        Imagen_URL = @Img,
+        Legajo = @Legajo
+    WHERE ID = @ID;
+    END
+END;
+GO
+
 
 CREATE PROCEDURE AddPasswordState (
     @Usuario INT,

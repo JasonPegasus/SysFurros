@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using DataAccess.Session.DTOs;
 using Microsoft.Data.SqlClient;
 using Shared;
 
-namespace Logic
+namespace DataAccess
 {
     public abstract class ConnectedObject
     {
@@ -14,12 +15,20 @@ namespace Logic
         static readonly string dbName = "FurrosDB";
         static readonly string connString = $"Server={serverAddress};Database={dbName};Integrated Security=True;TrustServerCertificate=True;";
 
+
+        static readonly string createProcedure;
+        static readonly string getDataProcedure;
+        static readonly string updateDataProcedure;
+
         public Dictionary<string, object> VALUES { get; private set; } = new();
 
         public object this[string key] { get { return VALUES[key]; } set { VALUES[key] = value; } }
 
         protected static ConnectedObject? Create() { return null; }
         protected static ConnectedObject? Find() { return null; }
+
+        public ConnectedObject? PullData() { return null; }
+        public ConnectedObject? PushData() { return null; }
 
         private SqlConnection? MakeConnection()
         {
